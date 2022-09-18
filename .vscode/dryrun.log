@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/yerassylmaikhanov/Documents/github/kolesa_super_app'
+make: Leaving directory `/Users/yerassylmaikhanov/Documents/github/kolesa_super_app'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
