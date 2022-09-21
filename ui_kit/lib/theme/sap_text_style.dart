@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ui_kit/theme/sap_colors.dart';
 
 extension SapTextStylesExtension on BuildContext {
   TextStyle get h1 => SapTextStyles.h1;
@@ -47,14 +46,12 @@ class SapTextStyles {
     fontWeight: FontWeight.w700,
     height: 32 / 26,
     letterSpacing: -0.3,
-    color: MColors.textMain,
   );
 
   static const h2 = TextStyle(
     fontSize: 22,
     fontWeight: FontWeight.w600,
     height: 27 / 22,
-    color: MColors.textMain,
     letterSpacing: -0.5,
   );
 
@@ -62,7 +59,6 @@ class SapTextStyles {
     fontSize: 22,
     fontWeight: FontWeight.w700,
     height: 27 / 22,
-    color: MColors.textMain,
     letterSpacing: -0.5,
   );
 
@@ -70,7 +66,6 @@ class SapTextStyles {
     fontSize: 17,
     fontWeight: FontWeight.w600,
     height: 22 / 17,
-    color: MColors.textMain,
     letterSpacing: -0.3,
   );
 
@@ -78,7 +73,6 @@ class SapTextStyles {
     fontSize: 17,
     fontWeight: FontWeight.w400,
     height: 22 / 17,
-    color: MColors.textMain,
     letterSpacing: -0.3,
   );
 
@@ -86,7 +80,6 @@ class SapTextStyles {
     fontSize: 17,
     fontWeight: FontWeight.w700,
     height: 22 / 17,
-    color: MColors.textMain,
     letterSpacing: 0,
   );
 
@@ -94,90 +87,77 @@ class SapTextStyles {
     fontSize: 15,
     fontWeight: FontWeight.w400,
     height: 20 / 15,
-    color: MColors.textMain,
   );
 
   static const bodyPrimarySemibold = TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.w600,
     height: 20 / 15,
-    color: MColors.textMain,
   );
 
   static const bodySecondary = TextStyle(
     fontSize: 13,
     fontWeight: FontWeight.w400,
     height: 1.23,
-    color: MColors.textMain,
   );
 
   static const subtitleSemibold = TextStyle(
     fontSize: 13,
     fontWeight: FontWeight.w600,
     height: 16 / 13,
-    color: MColors.textMain,
   );
 
   static const button = TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.w600,
     height: 20 / 15,
-    color: MColors.textMain,
   );
 
   static const captionPrimary = TextStyle(
     fontSize: 11,
     fontWeight: FontWeight.w400,
     height: 16 / 11,
-    color: MColors.textMain,
   );
 
   static const captionAdditional = TextStyle(
     fontSize: 11,
     fontWeight: FontWeight.w600,
     height: 16 / 11,
-    color: MColors.white,
   );
 
   static const captionBold = TextStyle(
     fontSize: 11,
     fontWeight: FontWeight.w700,
     height: 20 / 11,
-    color: MColors.white,
   );
 
   static const captionSecondary = TextStyle(
     fontSize: 11,
     fontWeight: FontWeight.w700,
     height: 20 / 11,
-    color: MColors.textSecondary,
   );
 
   static const caption2 = TextStyle(
     fontSize: 11,
     fontWeight: FontWeight.w400,
     height: 14 / 11,
-    color: MColors.textSecondary,
   );
 
   static const header2 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w700,
     height: 23.46 / 20,
-    color: MColors.textSecondary,
   );
 
   static const error = TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.w500,
     height: 20 / 15,
-    color: MColors.textActiveMistake,
   );
 
   static const errorSmall = TextStyle(
     fontSize: 13,
     fontWeight: FontWeight.w500,
     height: 16 / 13,
-    color: MColors.textActiveMistake,
   );
 }

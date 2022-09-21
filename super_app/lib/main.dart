@@ -7,9 +7,9 @@ import 'package:market/main.dart' as market;
 import 'package:partner_module/e_widget.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
-import 'package:super_app/dynamin/app_config_store.dart';
-import 'package:super_app/dynamin/camera_mini_app.dart';
-import 'package:super_app/dynamin/dynamic_mini_app.dart';
+import 'package:super_app/features/app_config_store.dart';
+import 'package:super_app/features/camera_mini_app.dart';
+import 'package:super_app/features/dynamic_mini_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -97,11 +97,11 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           },
           {
-            'name': 'Integration',
+            'name': 'Mini App',
             'onPressed': () {
               callModalBottomSheet(
                 context,
-                EpartnerWidget(),
+                const EpartnerWidget(),
               );
             },
           },
@@ -128,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Center(
                     child: Text(
                       e['name'].toString(),
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headline6,
                     ),
                   ),
                 ),

@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:partner_module/e_widget.dart';
 import 'package:provider/provider.dart';
-import 'package:super_app/dynamin/app_config_store.dart';
+import 'package:super_app/features/app_config_store.dart';
 
-class DynamicMiniApp extends StatefulWidget {
-  const DynamicMiniApp({Key? key}) : super(key: key);
+class CameraMiniApp extends StatefulWidget {
+  const CameraMiniApp({Key? key}) : super(key: key);
 
   @override
-  State<DynamicMiniApp> createState() => _DynamicMiniAppState();
+  State<CameraMiniApp> createState() => _CameraMiniAppState();
 }
 
-class _DynamicMiniAppState extends State<DynamicMiniApp> {
+class _CameraMiniAppState extends State<CameraMiniApp> {
   InAppWebViewController? webViewController;
 
   void setCss(AppConfig config) {
@@ -33,25 +33,10 @@ class _DynamicMiniAppState extends State<DynamicMiniApp> {
         final store = Provider.of<AppConfig>(context);
         return Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  store.brightness == Brightness.light ? 'Light Mode' : 'Dark Mode',
-                ),
-                Switch.adaptive(
-                  value: store.brightness == Brightness.light,
-                  onChanged: (val) async {
-                    await store.changeMode();
-                    setCss(store);
-                  },
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.8,
               child: EpartnerWidget(
+                url: 'https://kolesa-test.bss.design/photo.html',
                 setController: (value) {
                   webViewController = value;
                 },
