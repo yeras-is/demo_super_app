@@ -5,8 +5,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:market/main.dart' as market;
 import 'package:partner_module/e_widget.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
+import 'package:super_app/dynamin/app_config_store.dart';
+import 'package:super_app/dynamin/camera_mini_app.dart';
+import 'package:super_app/dynamin/dynamic_mini_app.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Permission.camera.request();
+  await Permission.microphone.request();
   runApp(ModularApp(
     module: SuperAppModule(),
     child: const SuperAppWidget(),
@@ -20,6 +28,8 @@ class SuperAppModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute('/', child: (context, args) => const MyHomePage(title: 'SuperApp')),
+        ChildRoute('/dynamic', child: (context, args) => const DynamicMiniApp()),
+        ChildRoute('/camera', child: (context, args) => const CameraMiniApp()),
         ModuleRoute('/market', module: market.MarketAppModule()),
         ModuleRoute('/banking', module: banking.BankingAppModule()),
       ];
@@ -31,10 +41,26 @@ class SuperAppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Modular.setInitialRoute('/');
-    return MaterialApp.router(
-      routeInformationParser: Modular.routeInformationParser,
-      routerDelegate: Modular.routerDelegate,
-      theme: superAppTheme,
+    final darkTheme = ThemeData.dark(useMaterial3: true);
+    return Provider(
+      create: (context) => AppConfig(),
+      child: Observer(
+        builder: (BuildContext context) => MaterialApp.router(
+          routeInformationParser: Modular.routeInformationParser,
+          routerDelegate: Modular.routerDelegate,
+          theme: superAppTheme,
+          darkTheme: darkTheme.copyWith(
+            colorScheme: const ColorScheme.dark(),
+            appBarTheme: const AppBarTheme(
+              elevation: 1,
+              scrolledUnderElevation: 50,
+              color: CupertinoColors.darkBackgroundGray,
+              centerTitle: true,
+            ),
+          ),
+          themeMode: Provider.of<AppConfig>(context).brightness == Brightness.light ? ThemeMode.light : ThemeMode.dark,
+        ),
+      ),
     );
   }
 }
@@ -75,8 +101,20 @@ class _MyHomePageState extends State<MyHomePage> {
             'onPressed': () {
               callModalBottomSheet(
                 context,
-                const EpartnerWidget(),
+                EpartnerWidget(),
               );
+            },
+          },
+          {
+            'name': 'Dynamic',
+            'onPressed': () {
+              Modular.to.pushNamed('/dynamic');
+            },
+          },
+          {
+            'name': 'Camera App',
+            'onPressed': () {
+              Modular.to.pushNamed('/camera');
             },
           },
         ]

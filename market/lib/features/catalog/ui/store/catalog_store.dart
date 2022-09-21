@@ -1,6 +1,9 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:dependencies/dependencies.dart';
 import 'package:market/features/catalog/domain/models/catalog_model.dart';
 import 'package:market/features/catalog/domain/services/catalog_repository.dart';
+import 'package:mobx/mobx.dart';
 
 part 'catalog_store.g.dart';
 
